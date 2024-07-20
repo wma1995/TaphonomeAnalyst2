@@ -125,7 +125,9 @@ Command:
 Result:
 
 ![clusterenv_aquatic.png]()
+
 ![clusterenv_tree.png]()
+
 ![clusterenv_geochem.png]()
 
 ### 2. Venn diagram-sampling locations or environments. **(Module Ⅳ)** [venn]
