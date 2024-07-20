@@ -174,7 +174,7 @@ Result:
 
 ![abundplots.png]()
 
-### 6. Co-occurrence networks. **(Module Ⅸ)** [network]
+### 6. Co-occurrence networks. **(Module Ⅸ)** [network/venn]
 
 Command:
 
