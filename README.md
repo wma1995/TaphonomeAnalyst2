@@ -138,7 +138,7 @@ Command:
 
 Result:
 
-![divvenn.png]()
+![divvenn.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/divvenn.png)
 
 ### 3. Taphonomic grades-taxa. **(Module Ⅲ)** [barh]
 
@@ -148,7 +148,7 @@ Command:
 
 Result:
 
-![TGotus.png]()
+![TGotus.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/TGotus.png)
 
 ### 4. Taphonomic grades-sampling plots (in customized order). **(Module Ⅲ)** [barh]
 
@@ -160,9 +160,9 @@ Command:
 
 Result:
 
-![TGplots.png]()
+![TGplots.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/TGplots.png)
 
-![TGplots_groups.png]()
+![TGplots_groups.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/TGplots_groups.png)
 
 ### 5. Abundance-sampling plots. **(Module Ⅱ)** [barh]
 
@@ -172,7 +172,7 @@ Command:
 
 Result:
 
-![abundplots.png]()
+![abundplots.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/abundplots.png)
 
 ### 6. Co-occurrence networks. **(Module Ⅸ)** [network/venn]
 
@@ -182,9 +182,9 @@ Command:
 
 Result:
 
-![cooccurnet.png]()
+![cooccurnet.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/cooccurnet.png)
 
-![cooccurnet_venn.png]()
+![cooccurnet_venn.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/cooccurnet_venn.png)
 
 ### 7. Sampling coverage curve. **(Module Ⅰ)** [regplot]
 
@@ -194,7 +194,7 @@ Command:
 
 Result:
 
-![samplecurve.png]()
+![samplecurve.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/samplecurve.png)
 
 ### 8. Chao1 potential diversity curve. **(Module Ⅰ)** [regplot]
 
@@ -204,7 +204,7 @@ Command:
 
 Result:
 
-![chao.png]()
+![chao.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/chao.png)
 
 ### 9. ACE potential diversity curve. **(Module Ⅰ)** [regplot]
 
@@ -214,7 +214,7 @@ Command:
 
 Result:
 
-![ace.png]()
+![ace.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/ace.png)
 
 ### 10. Heatmap-OTUs correlation analysis. **(Module Ⅷ)** [heatmap]
 
@@ -224,7 +224,7 @@ Command:
 
 Result:
 
-![corrotus.png]()
+![corrotus.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/corrotus.png)
 
 ### 11. Mantel Test between species abundance and ecological environmental variables. **(Module Ⅶ)** [multiplot]
 
@@ -234,7 +234,7 @@ Command:
 
 Result:
 
-![mantel.png]()
+![mantel.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/mantel.png)
 
 ### 12. Assembling dissimilarity- environmental distance test. **(Module Ⅵ)** [regplot]
 
@@ -244,7 +244,7 @@ Command:
 
 Result:
 
-![dissenvtest.png]()
+![dissenvtest.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/dissenvtest.png)
 
 ### 13. Generate a unified layout network for comparison. (Module Ⅹ)\t[network/boxplot/barplot]
 
@@ -254,31 +254,31 @@ Command:
 
 Result:
 
-![netVC_Aquatic_A.png]()
+![netVC_Aquatic_A.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/netVC_Aquatic_A.png)
 
-![netVC_Aquatic_B.png]()
+![netVC_Aquatic_B.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/netVC_Aquatic_B.png)
 
-![netVC_Aquatic_Robustness.png]()
+![netVC_Aquatic_Robustness.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/netVC_Aquatic_Robustness.png)
 
-![netVC_Terrestrial_A.png]()
+![netVC_Terrestrial_A.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/netVC_Terrestrial_A.png)
 
-![netVC_Terrestrial_B.png]()
+![netVC_Terrestrial_B.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/netVC_Terrestrial_B.png)
 
-![netVC_Terrestrial_Robustness.png]()
+![netVC_Terrestrial_Robustness.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/netVC_Terrestrial_Robustness.png)
 
-![netVC_Total_nodes.png]()
+![netVC_Total_nodes.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/netVC_Total_nodes.png)
 
-![netVC_Total_links.png]()
+![netVC_Total_links.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/netVC_Total_links.png)
 
-![netVC_Total_edges.png]()
+![netVC_Total_edges.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/netVC_Total_edges.png)
 
-![netVC_Degree.png]()
+![netVC_Degree.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/netVC_Degree.png)
 
-![netVC_Density.png]()
+![netVC_Density.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/netVC_Density.png)
 
-![netVC_Complexity.png]()
+![netVC_Complexity.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/netVC_Complexity.png)
 
-![netVC_Modularity.png]()
+![netVC_Modularity.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/netVC_Modularity.png)
 
 
 [//]: # (## Citation)
