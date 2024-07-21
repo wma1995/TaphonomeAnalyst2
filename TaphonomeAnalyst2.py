@@ -51,8 +51,6 @@ def str2dictlist(s):
     return group_dict
 
 
-# M5
-# 水生
 def clusterenv(args):
     all_level_set = set()
     for i in data_df_dict.keys():
@@ -107,8 +105,6 @@ def clusterenv(args):
     print('Finished!')
 
 
-# M4
-# 自定义分组
 def divvenn(args):
     groups_list = [i.split('/') for i in args.groups]
     all_level_set = set()
@@ -139,7 +135,6 @@ def divvenn(args):
     plt.savefig(fname=f'{args.output}.{args.format}', bbox_inches='tight')
 
 
-# M3
 def TGotus(args):
     plot_df_dict = {
         i: data_df_dict[i][args.level].value_counts().rename_axis(args.level).reset_index(name=i).set_index(
@@ -220,7 +215,6 @@ def TGplots(args):
         plt.savefig(fname=f'{args.output}.{args.format}', bbox_inches='tight')
 
 
-# M2
 def abundplots(args):
     all_plot_grade_count_df = pd.DataFrame(index=data_df_dict.keys(), columns=grade_list)
     for i in data_df_dict.keys():
@@ -383,7 +377,6 @@ def cooccurnet(args):
     plt.savefig(fname=f'{args.output}_venn.{args.format}', bbox_inches='tight')
 
 
-# M1 chao1
 def chao(args):
     plot_dict = args.groups
     otu_df_dict = dict()
@@ -481,7 +474,6 @@ def chao(args):
     plt.savefig(fname=f'{args.output}.{args.format}', bbox_inches='tight')
 
 
-# M1 sobs
 def samplecurve(args):
     plot_dict = args.groups
     otu_df_dict = dict()
@@ -608,7 +600,6 @@ def _ace(counts, rare_threshold=10):
     return s_abun + (s_rare / c_ace) + ((singles / c_ace) * gamma_ace)
 
 
-# M1 ace
 def ace(args):
     plot_dict = args.groups
     otu_df_dict = dict()
@@ -698,7 +689,6 @@ def ace(args):
     plt.savefig(fname=f'{args.output}.{args.format}', bbox_inches='tight')
 
 
-# M8
 def corrotus(args):
     plot_df_dict = {
         i: (data_df_dict[i][args.level].value_counts(normalize=True) * 3000).rename_axis(args.level).reset_index(
