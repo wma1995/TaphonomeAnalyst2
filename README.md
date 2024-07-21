@@ -120,7 +120,7 @@ Or check the detail in [User Guide](https://github.com/wma1995/TaphonomeAnalyst2
 
 Command:
         
-    python ./TaphonomeAnalyst2.py clusterenv --input ./Supplementary material2 --aquatic 'Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)' --geochem './Supplementary material3.xlsx' --level 'species'
+    python ./TaphonomeAnalyst2.py clusterenv --input './Supplementary material2.xlsx' --aquatic 'Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)' --geochem './Supplementary material3.xlsx' --level 'species'
 
 Result:
 
@@ -134,7 +134,7 @@ Result:
 
 Command:
         
-    python ./TaphonomeAnalyst2.py divvenn --input ./Supplementary material2.xlsx --groups 'plot3-3/plot3-1/plot3-2,plot1-1/plot2-2/plot2-1/plot2-3/plot1-2/plot1-3' --level 'family
+    python ./TaphonomeAnalyst2.py divvenn --input './Supplementary material2.xlsx' --groups 'plot3-3/plot3-1/plot3-2,plot1-1/plot2-2/plot2-1/plot2-3/plot1-2/plot1-3' --level 'family
 
 Result:
 
@@ -144,7 +144,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py TGotus --input ./Supplementary material2.xlsx --level 'order'
+    python ./TaphonomeAnalyst2.py TGotus --input './Supplementary material2.xlsx' --level 'order'
 
 Result:
 
@@ -154,9 +154,9 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py TGplots --input ./Supplementary material2.xlsx
+    python ./TaphonomeAnalyst2.py TGplots --input './Supplementary material2.xlsx'
 
-    python ./TaphonomeAnalyst2.py TGplots --input ./Supplementary material2.xlsx --groups 'plot3-3/plot3-1/plot3-2,plot1-1/plot2-2/plot2-1/plot2-3/plot1-2/plot1-3'
+    python ./TaphonomeAnalyst2.py TGplots --input './Supplementary material2.xlsx' --groups 'plot3-3/plot3-1/plot3-2,plot1-1/plot2-2/plot2-1/plot2-3/plot1-2/plot1-3'
 
 Result:
 
@@ -168,7 +168,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py abundplots --input ./Supplementary material2.xlsx --level 'order'
+    python ./TaphonomeAnalyst2.py abundplots --input './Supplementary material2.xlsx' --level 'order'
 
 Result:
 
@@ -178,7 +178,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py cooccurnet --input ./Supplementary material2.xlsx --level 'family' --corr 'pearson' --corr_coef 0.7 --p_value 0.1
+    python ./TaphonomeAnalyst2.py cooccurnet --input './Supplementary material2.xlsx' --level 'family' --corr 'pearson' --corr_coef 0.7 --p_value 0.1
 
 Result:
 
@@ -190,7 +190,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py samplecurve --input ./Supplementary material2.xlsx --level 'family' --groups 'plot1:plot1-1/plot1-2/plot1-3,plot2:plot2-1/plot2-2/plot2-3,plot3:plot3-1/plot3-2/plot3-3'
+    python ./TaphonomeAnalyst2.py samplecurve --input './Supplementary material2.xlsx' --level 'family' --groups 'plot1:plot1-1/plot1-2/plot1-3,plot2:plot2-1/plot2-2/plot2-3,plot3:plot3-1/plot3-2/plot3-3'
 
 Result:
 
@@ -200,7 +200,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py chao --input ./Supplementary material2.xlsx --level 'family' --groups 'plot1:plot1-1/plot1-2/plot1-3,plot2:plot2-1/plot2-2/plot2-3,plot3:plot3-1/plot3-2/plot3-3'
+    python ./TaphonomeAnalyst2.py chao --input './Supplementary material2.xlsx' --level 'family' --groups 'plot1:plot1-1/plot1-2/plot1-3,plot2:plot2-1/plot2-2/plot2-3,plot3:plot3-1/plot3-2/plot3-3'
 
 Result:
 
@@ -210,7 +210,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py ace --input ./Supplementary material2.xlsx --level 'family' --groups 'plot1:plot1-1/plot1-2/plot1-3,plot2:plot2-1/plot2-2/plot2-3,plot3:plot3-1/plot3-2/plot3-3' --rare 10
+    python ./TaphonomeAnalyst2.py ace --input './Supplementary material2.xlsx' --level 'family' --groups 'plot1:plot1-1/plot1-2/plot1-3,plot2:plot2-1/plot2-2/plot2-3,plot3:plot3-1/plot3-2/plot3-3' --rare 10
 
 Result:
 
@@ -220,7 +220,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py corrotus --input ./Supplementary material2.xlsx --level 'family' --corr 'pearson' --p_value 0.1
+    python ./TaphonomeAnalyst2.py corrotus --input './Supplementary material2.xlsx' --level 'family' --corr 'pearson' --p_value 0.1
 
 Result:
 
@@ -230,7 +230,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py mantel --input ./Supplementary material2.xlsx --rhome 'C:\Program Files\R\R-4.3.2' --geochem './Supplementary material3.xlsx' --aquatic 'Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)' --level_aquatic 'species' --level_terrestrial 'family' --corr 'pearson'
+    python ./TaphonomeAnalyst2.py mantel --input './Supplementary material2.xlsx' --rhome 'C:\Program Files\R\R-4.3.2' --geochem './Supplementary material3.xlsx' --aquatic 'Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)' --level_aquatic 'species' --level_terrestrial 'family' --corr 'pearson'
 
 Result:
 
@@ -240,7 +240,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py dissenvtest --input ./Supplementary material2.xlsx --aquatic 'Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)' --level_aquatic 'species' --level_terrestrial 'family' --geochem './Supplementary material3.xlsx'
+    python ./TaphonomeAnalyst2.py dissenvtest --input './Supplementary material2.xlsx' --aquatic 'Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)' --level_aquatic 'species' --level_terrestrial 'family' --geochem './Supplementary material3.xlsx'
 
 Result:
 
@@ -250,7 +250,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py netVC --input ./Supplementary material2.xlsx --aquatic 'Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)' --level_aquatic 'species' --level_terrestrial 'family' --groups 'plot3-3/plot3-1/plot3-2,plot1-1/plot2-2/plot2-1/plot2-3/plot1-2/plot1-3' --corr 'spearman' --corr_coef 0.7 --p_value 0.01
+    python ./TaphonomeAnalyst2.py netVC --input './Supplementary material2.xlsx' --aquatic 'Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)' --level_aquatic 'species' --level_terrestrial 'family' --groups 'plot3-3/plot3-1/plot3-2,plot1-1/plot2-2/plot2-1/plot2-3/plot1-2/plot1-3' --corr 'spearman' --corr_coef 0.7 --p_value 0.01
 
 Result:
 
