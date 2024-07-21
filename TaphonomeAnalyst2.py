@@ -1332,16 +1332,20 @@ def netVC(args):
     Degree = df[['Degree', 'Level', 'Group']].explode('Degree').reset_index()
     ax = sns.boxplot(data=Degree, x='Group', order=[chr(i + 65) for i in range(len(groups_list))], y='Degree',
                      hue='Level', hue_order=['Aquatic', 'Terrestrial'])
+    y_max = ax.get_ylim()[1] * 1.4
+    ax.set_ylim(-ax.get_ylim()[1] / 20, y_max)
+    ax.set_yticks([tick for tick in ax.get_yticks() if tick >= 0])
+    xticks = ax.get_xticks()
     count = 0
     for i in [chr(i + 65) for i in range(len(groups_list))]:
         p_value = stats.mannwhitneyu(Degree[Degree['index'] == f'Aquatic {i}']['Degree'],
                                      Degree[Degree['index'] == f'Terrestrial {i}']['Degree'])[1]
         text = "***" if p_value < 0.001 else "**" if p_value < 0.01 else "*" if p_value < 0.05 else "n.s."
-        plt.text(0.12 + 0.25 * count, 0.82, text, ha='center', va='center', transform=plt.gca().transAxes, fontsize=22,
-                 color='black', alpha=1, weight='bold')
+        plt.text(xticks[count], y_max * 0.84, text, ha='center', va='center', fontsize=22, color='black', alpha=1,
+                 weight='bold')
         count += 1
-    ax.set_ylim(bottom=-1, top=35)
-    ax.set_yticks([i for i in range(0, 40, 5)])
+    # ax.set_ylim(bottom=-1, top=35)
+    # ax.set_yticks([i for i in range(0, 40, 5)])
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
     plt.legend(fontsize=14)
@@ -1353,16 +1357,18 @@ def netVC(args):
     Complexity = df[['Complexity', 'Level', 'Group']].explode('Complexity').reset_index()
     ax = sns.boxplot(data=Complexity, x='Group', order=[chr(i + 65) for i in range(len(groups_list))], y='Complexity',
                      hue='Level', hue_order=['Aquatic', 'Terrestrial'])
+    y_max = ax.get_ylim()[1] * 1.4
+    ax.set_ylim(-ax.get_ylim()[1] / 20, y_max)
+    ax.set_yticks([tick for tick in ax.get_yticks() if tick >= 0])
+    xticks = ax.get_xticks()
     count = 0
     for i in [chr(i + 65) for i in range(len(groups_list))]:
         p_value = stats.mannwhitneyu(Complexity[Complexity['index'] == f'Aquatic {i}']['Complexity'],
                                      Complexity[Complexity['index'] == f'Terrestrial {i}']['Complexity'])[1]
         text = "***" if p_value < 0.001 else "**" if p_value < 0.01 else "*" if p_value < 0.05 else "n.s."
-        plt.text(0.12 + 0.25 * count, 0.82, text, ha='center', va='center', transform=plt.gca().transAxes, fontsize=22,
-                 color='black', alpha=1, weight='bold')
+        plt.text(xticks[count], y_max * 0.84, text, ha='center', va='center', fontsize=22, color='black', alpha=1,
+                 weight='bold')
         count += 1
-    # ax.set_ylim(bottom=-0.0125, top=0.25)
-    # ax.set_yticks([i / 1000 for i in range(0, 275, 25)])
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
     plt.legend(fontsize=14)
