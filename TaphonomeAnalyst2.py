@@ -1489,7 +1489,7 @@ if __name__ == '__main__':
     abundplots_parser.set_defaults(func=abundplots)
 
     cooccurnet_parser = subparsers.add_parser(name='cooccurnet', parents=[parent_parser],
-                                              help='Co-occurrence networks. (Module Ⅸ)\t[network]')
+                                              help='Co-occurrence networks. (Module Ⅸ)\t[network/venn]')
     cooccurnet_parser.add_argument('--level', type=str, default='family',
                                    choices=['order', 'family', 'genera', 'species'],
                                    help='Taxonomic level.(default: %(default)s)')
