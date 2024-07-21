@@ -98,21 +98,21 @@ Command:
 
 Using `python ./TaphonomeAnalyst2.py -h` and `python ./TaphonomeAnalyst2.py [command] -h` to read the brief.  
 
-Or check the detail in [User Guide]()
+Or check the detail in [User Guide](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Supplementary%20material1%20The%20User%20Guide%20of%20TaphonomeAnalyst%202.0.pdf)
 
 ## Information and Data
 
 ### 1. User Guide
 
-[Supplementary material1 The User Guide of TaphonomeAnalyst 2.0.pdf]() 
+[Supplementary material1 The User Guide of TaphonomeAnalyst 2.0.pdf](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Supplementary%20material1%20The%20User%20Guide%20of%20TaphonomeAnalyst%202.0.pdf) 
 
 ### 2. OTUs Data
 
-[Supplementary material2.xlsx]()  
+[Supplementary material2.xlsx](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Supplementary%20material2.xlsx)  
 
 ### 3. Geochemical Data
 
-[Supplementary material3.xlsx]()  
+[Supplementary material3.xlsx](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Supplementary%20material3.xlsx)  
 
 ## Usage and Result
 
@@ -124,11 +124,11 @@ Command:
 
 Result:
 
-![clusterenv_aquatic.png]()
+![clusterenv_aquatic.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/clusterenv_aquatic.png)
 
-![clusterenv_tree.png]()
+![clusterenv_tree.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/clusterenv_tree.png)
 
-![clusterenv_geochem.png]()
+![clusterenv_geochem.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/clusterenv_geochem.png)
 
 ### 2. Venn diagram-sampling locations or environments. **(Module Ⅳ)** [venn]
 
