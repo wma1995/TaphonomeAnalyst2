@@ -449,7 +449,7 @@ def chao(args):
                 plot_chao_ci_dict[j].append(chao1_ci(step_df_concat.T[k]))
     ncols = 2
     nrows = (len(plot_dict.keys()) + 1) // 2
-    fig, axes = plt.subplots(nrows=nrows, ncols=ncols, sharex=True, figsize=(nrows * 5, ncols * 15))
+    fig, axes = plt.subplots(nrows=nrows, ncols=ncols, sharex=True, figsize=(ncols * 12, nrows * 6))
     ax_list = [axes[i, j] for i in range(nrows) for j in range(ncols)]
     loc_list = [i for i in step_dict_.keys()]
     sns.set_style('ticks')
@@ -543,7 +543,7 @@ def samplecurve(args):
                 plot_real_dict[j].append(len([l for l in step_df_concat.T[k] if int(l) != 0]))
     ncols = 2
     nrows = (len(plot_dict.keys()) + 1) // 2
-    fig, axes = plt.subplots(nrows=nrows, ncols=ncols, sharex=True, figsize=(nrows * 5, ncols * 15))
+    fig, axes = plt.subplots(nrows=nrows, ncols=ncols, sharex=True, figsize=(ncols * 12, nrows * 6))
     ax_list = [axes[i, j] for i in range(nrows) for j in range(ncols)]
     loc_list = [i for i in step_dict_.keys()]
     sns.set_style('ticks')
@@ -669,7 +669,7 @@ def ace(args):
                 plot_ace_dict[j].append(_ace(step_df_concat.T[k].astype(np.int64), rare_threshold=10))
     ncols = 2
     nrows = (len(plot_dict.keys()) + 1) // 2
-    fig, axes = plt.subplots(nrows=nrows, ncols=ncols, sharex=True, figsize=(nrows * 5, ncols * 15))
+    fig, axes = plt.subplots(nrows=nrows, ncols=ncols, sharex=True, figsize=(ncols * 12, nrows * 6))
     ax_list = [axes[i, j] for i in range(nrows) for j in range(ncols)]
     loc_list = [i for i in step_dict_.keys()]
     sns.set_style('ticks')
