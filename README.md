@@ -8,7 +8,7 @@ Lacustrine taphocoenosis network analysis software.
 
 Related Article: A new method for examining the co-occurrence network of fossil assemblages  
 Publication: https://doi.org/10.1038/s42003-023-05417-6  
-Contract: 13820113071@163.com (shilong Guo) / wma19952022@163.com (wang Ma)
+Contract: 13820113071@163.com (Shilong Guo) / wma19952022@163.com (Wang Ma)
 
 ### 2. TaphonomeAnalyst 2.0 [_*current version_]
 
@@ -16,7 +16,7 @@ Integrated analysis software for lacustrine taphocoenosis network and geochemica
 
 Article:   
 Publication:   
-Contract: 13820113071@163.com (shilong Guo) / wma19952022@163.com (wang Ma)
+Contract: 13820113071@163.com (Shilong Guo) / wma19952022@163.com (Wang Ma)
 
 ### 3. Version Comparison
 
