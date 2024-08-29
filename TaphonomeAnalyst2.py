@@ -26,6 +26,8 @@ from sparcc import SparCC_MicNet
 
 warnings.filterwarnings("ignore")
 
+pd.set_option('display.max_rows', None)
+pd.set_option('display.max_columns', None)
 sns.reset_orig()
 sns.set_style('white')
 matplotlib.use('Agg')
@@ -97,9 +99,11 @@ def clusterenv(args):
         geochem.dropna(axis=1, how='all', inplace=True)
         geochem.sort_index(axis=1, inplace=True)
         geochem = geochem.reindex(labels=x_labels)
+        # geochem = geochem.reindex(labels=['Zhouyingzi3α', 'Zhouyingzi1α', 'Zhouyingzi2β', 'Zhouyingzi2α', 'Zhouyingzi3β', 'Zhouyingzi1β', 'Yujiagou north3β', 'Yujiagou north2β', 'Yujiagou north2α', 'Yujiagou north1γ', 'Yujiagou north1β', 'Yujiagou north1α', 'Yujiagou north3α', 'Yujiagou south1α', 'Donggou1', 'Donggou2', 'Donggou3', 'Donggouli2', 'Beigou1', 'Donggouli1', 'Beigou3', 'Beigou2', 'Donggouli3'])
         geochem_standardscale = geochem.apply(lambda x: (x - np.min(x)) / (np.max(x) - np.min(x)))
         plt.figure(figsize=geochem.shape, dpi=200)
         ax = sns.heatmap(geochem_standardscale.T, cmap='Blues', annot=False, center=0, linewidths=.5, fmt='.2g')
+        # ax = sns.clustermap(geochem_standardscale.T, cmap='Blues', row_cluster=False, method='average', metric='braycurtis')
         ax.set_xlabel('')
         plt.savefig(fname=f'{args.output}_geochem.{args.format}', bbox_inches='tight')
     print('Finished!')
@@ -773,9 +777,9 @@ def mantel(args):
     aquatic_tmp_list = list(set(aquatic_tmp_list))
     terrestrial_level_list = []
     for i in data_df_dict.keys():
-        for j in aquatic_tmp_list:
-            terrestrial_level_list.extend(
-                data_df_dict[i][data_df_dict[i][args.level_terrestrial] != j][args.level_terrestrial].tolist())
+        terrestrial_level_list.extend(
+            data_df_dict[i][~data_df_dict[i][args.level_terrestrial].isin(aquatic_tmp_list)][
+                args.level_terrestrial].tolist())
     terrestrial_level_list = [i for i in set(terrestrial_level_list) if i != 'unknown']
     all_level_set = set()
     for i in data_df_dict.keys():
@@ -798,7 +802,7 @@ def mantel(args):
     otu_level_df_filter = otu_level_df.drop(columns=del_columns_list)
     otu_level_df_filter = otu_level_df_filter.loc[:, otu_level_df_filter.columns.isin(aquatic_level_list)]
     otu_level_df_filter_standardscale_aquatic = otu_level_df_filter.apply(
-        lambda x: (x - np.min(x)) / (np.max(x) - np.min(x)))
+        lambda x: x / x.sum(), axis=1)
     otu_level_df_filter_standardscale_aquatic.sort_index(inplace=True)
     all_level_set = set()
     for i in data_df_dict.keys():
@@ -821,7 +825,8 @@ def mantel(args):
     otu_level_df_filter = otu_level_df.drop(columns=del_columns_list)
     otu_level_df_filter = otu_level_df_filter.loc[:, otu_level_df_filter.columns.isin(terrestrial_level_list)]
     otu_level_df_filter_standardscale_terrestrial = otu_level_df_filter.apply(
-        lambda x: (x - np.min(x)) / (np.max(x) - np.min(x)))
+        lambda x: x / x.sum(), axis=1)
+    otu_level_df_filter_standardscale_terrestrial = otu_level_df_filter_standardscale_terrestrial.fillna(0)
     otu_level_df_filter_standardscale_terrestrial.sort_index(inplace=True)
     aquatic_and_terrestrial = pd.concat(
         [otu_level_df_filter_standardscale_aquatic, otu_level_df_filter_standardscale_terrestrial], axis=1)
@@ -852,8 +857,8 @@ def mantel(args):
 
         mantel <- mantel_test(aquatic_and_terrestrial, geochem,
                               spec_select = list(Aquatic = 1:r_aquatic_end, Terrestrial = r_terrestrial_start:r_terrestrial_end)) %>% 
-          mutate(rd = cut(r, breaks = c(-Inf, 0.2, 0.4, Inf),
-                          labels = c("< 0.2", "0.2 - 0.4", ">= 0.4")),
+          mutate(rd = cut(r, breaks = c(-Inf, 0.35, 0.45, 0.6, Inf),
+                          labels = c("< 0.35", "0.35 - 0.45", "0.45 - 0.6", ">= 0.6")),
                  pd = cut(p, breaks = c(-Inf, 0.01, 0.05, Inf),
                           labels = c("< 0.01", "0.01 - 0.05", ">= 0.05")))
 
@@ -902,9 +907,9 @@ def dissenvtest(args):
     aquatic_tmp_list = list(set(aquatic_tmp_list))
     terrestrial_level_list = []
     for i in data_df_dict.keys():
-        for j in aquatic_tmp_list:
-            terrestrial_level_list.extend(
-                data_df_dict[i][data_df_dict[i][args.level_terrestrial] != j][args.level_terrestrial].tolist())
+        terrestrial_level_list.extend(
+            data_df_dict[i][~data_df_dict[i][args.level_terrestrial].isin(aquatic_tmp_list)][
+                args.level_terrestrial].tolist())
     terrestrial_level_list = [i for i in set(terrestrial_level_list) if i != 'unknown']
     all_level_set = set()
     for i in data_df_dict.keys():
@@ -927,7 +932,7 @@ def dissenvtest(args):
     otu_level_df_filter = otu_level_df.drop(columns=del_columns_list)
     otu_level_df_filter = otu_level_df_filter.loc[:, otu_level_df_filter.columns.isin(aquatic_level_list)]
     otu_level_df_filter_standardscale_aquatic = otu_level_df_filter.apply(
-        lambda x: (x - np.min(x)) / (np.max(x) - np.min(x)))
+        lambda x: x / x.sum(), axis=1)
     otu_level_df_filter_standardscale_aquatic.sort_index(inplace=True)
     bray_curtis_matrix_aquatic = pd.DataFrame(index=otu_level_df_filter_standardscale_aquatic.index,
                                               columns=otu_level_df_filter_standardscale_aquatic.index)
@@ -965,7 +970,12 @@ def dissenvtest(args):
     otu_level_df_filter = otu_level_df.drop(columns=del_columns_list)
     otu_level_df_filter = otu_level_df_filter.loc[:, otu_level_df_filter.columns.isin(terrestrial_level_list)]
     otu_level_df_filter_standardscale_terrestrial = otu_level_df_filter.apply(
-        lambda x: (x - np.min(x)) / (np.max(x) - np.min(x)))
+        lambda x: x / x.sum(), axis=1)
+    otu_level_df_filter_standardscale_terrestrial = otu_level_df_filter_standardscale_terrestrial.fillna(0)
+    zero_rows_list = otu_level_df_filter_standardscale_terrestrial.index[
+        (otu_level_df_filter_standardscale_terrestrial == 0).all(axis=1)]
+    otu_level_df_filter_standardscale_terrestrial = otu_level_df_filter_standardscale_terrestrial.loc[
+        (otu_level_df_filter_standardscale_terrestrial != 0).any(axis=1)]
     otu_level_df_filter_standardscale_terrestrial.sort_index(inplace=True)
     bray_curtis_matrix_terrestrial = pd.DataFrame(index=otu_level_df_filter_standardscale_terrestrial.index,
                                                   columns=otu_level_df_filter_standardscale_terrestrial.index)
@@ -985,11 +995,16 @@ def dissenvtest(args):
     bray_curtis_matrix_terrestrial_list = [i for i in bray_curtis_matrix_terrestrial_half.values.flatten() if i != -1]
     slope_a, intercept_a, r_value_a, p_value_a, std_err_a = stats.linregress(bray_curtis_matrix_aquatic_list,
                                                                              environmental_distances_list)
+    environmental_distances_terrestrial_half = environmental_distances_half.drop(index=zero_rows_list,
+                                                                                 columns=zero_rows_list)
+    environmental_distances_terrestrial_list = [i for i in environmental_distances_terrestrial_half.values.flatten() if
+                                                i != -1]
     slope_t, intercept_t, r_value_t, p_value_t, std_err_t = stats.linregress(bray_curtis_matrix_terrestrial_list,
-                                                                             environmental_distances_list)
+                                                                             environmental_distances_terrestrial_list)
     sns.regplot(x=bray_curtis_matrix_aquatic_list, y=environmental_distances_list, scatter_kws={'alpha': 0.4},
                 label='Aquatic')
-    sns.regplot(x=bray_curtis_matrix_terrestrial_list, y=environmental_distances_list, scatter_kws={'alpha': 0.4},
+    sns.regplot(x=bray_curtis_matrix_terrestrial_list, y=environmental_distances_terrestrial_list,
+                scatter_kws={'alpha': 0.4},
                 label='Terrestrial')
     plt.xticks(fontsize=14)
     plt.yticks(fontsize=14)
@@ -1019,9 +1034,9 @@ def netVC(args):
     aquatic_tmp_list = list(set(aquatic_tmp_list))
     terrestrial_level_list = []
     for i in data_df_dict.keys():
-        for j in aquatic_tmp_list:
-            terrestrial_level_list.extend(
-                data_df_dict[i][data_df_dict[i][args.level_terrestrial] != j][args.level_terrestrial].tolist())
+        terrestrial_level_list.extend(
+            data_df_dict[i][~data_df_dict[i][args.level_terrestrial].isin(aquatic_tmp_list)][
+                args.level_terrestrial].tolist())
     terrestrial_level_list = [i for i in set(terrestrial_level_list) if i != 'unknown']
     all_level_set = set()
     for i in data_df_dict.keys():
@@ -1197,6 +1212,9 @@ def netVC(args):
     otu_level_df_filter.sort_index(inplace=True)
     otu_level_df_filter_standardscale_terrestrial = otu_level_df_filter.apply(
         lambda x: (x - np.min(x)) / (np.max(x) - np.min(x)))
+    otu_level_df_filter_standardscale_terrestrial = otu_level_df_filter_standardscale_terrestrial.fillna(0)
+    # otu_level_df_filter_standardscale_terrestrial = otu_level_df_filter_standardscale_terrestrial.loc[
+    #     (otu_level_df_filter_standardscale_terrestrial != 0).any(axis=1)]
     otu_level_df_filter_standardscale_terrestrial.sort_index(inplace=True)
 
     data_list = []
@@ -1330,6 +1348,7 @@ def netVC(args):
     df['Group'] = [i[-1] for i in df.index]
 
     Degree = df[['Degree', 'Level', 'Group']].explode('Degree').reset_index()
+    Degree['Degree'] = pd.to_numeric(Degree['Degree'], errors='coerce')
     ax = sns.boxplot(data=Degree, x='Group', order=[chr(i + 65) for i in range(len(groups_list))], y='Degree',
                      hue='Level', hue_order=['Aquatic', 'Terrestrial'])
     y_max = ax.get_ylim()[1] * 1.4
@@ -1355,6 +1374,7 @@ def netVC(args):
     plt.clf()
 
     Complexity = df[['Complexity', 'Level', 'Group']].explode('Complexity').reset_index()
+    Complexity['Complexity'] = pd.to_numeric(Complexity['Complexity'], errors='coerce')
     ax = sns.boxplot(data=Complexity, x='Group', order=[chr(i + 65) for i in range(len(groups_list))], y='Complexity',
                      hue='Level', hue_order=['Aquatic', 'Terrestrial'])
     y_max = ax.get_ylim()[1] * 1.4
