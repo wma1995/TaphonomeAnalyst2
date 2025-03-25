@@ -1,5 +1,4 @@
 # install_packages.R
-install.packages("dplyr")
-install.packages("ggplot2")
-install.packages("devtools")
+options(repos = c(CRAN = "https://mirrors.tuna.tsinghua.edu.cn/CRAN/"))
+
 devtools::install_github("Hy4m/linkET", force = TRUE)
