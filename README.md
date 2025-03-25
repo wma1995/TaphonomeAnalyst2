@@ -76,6 +76,8 @@ There are two ways to install TaphonomeAnalyst 2.0.
 
 ### 1. Use Conda (Recommend)
 
+#### * Note : How to download and install conda? [Documentation](https://docs.conda.io/projects/conda/en/stable/).
+
 Command:
 
     conda create -n taphonomeAnalyst2 python=3.9 r-base=4.3.3
@@ -84,7 +86,6 @@ Command:
     pip install -r ./requirements.txt
     Rscript ./install_packages.R
 
-#### * Note : How to download and install conda? [Documentation](https://docs.conda.io/projects/conda/en/stable/).
 
 ### 2. Only use pip and Rscript
 
