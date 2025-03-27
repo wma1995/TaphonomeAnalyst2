@@ -53,7 +53,7 @@ def str2dictlist(s):
     return group_dict
 
 
-def clusterenv(args):
+def m4clusterenv(args):
     all_level_set = set()
     for i in data_df_dict.keys():
         all_level_set |= set(data_df_dict[i][args.level])
@@ -92,22 +92,53 @@ def clusterenv(args):
     plt.figure(figsize=otu_level_df_filter.shape, dpi=200)
     dendrogram(Z=mergings, labels=otu_level_df_filter_standardscale_sort.index, leaf_rotation=90)
     plt.savefig(fname=f'{args.output}_tree.{args.format}', bbox_inches='tight')
+
+
+def m5clusterenv(args):
+    all_level_set = set()
+    for i in data_df_dict.keys():
+        all_level_set |= set(data_df_dict[i][args.level])
+    all_level_set.remove('unknown')
+    all_otu_df_list = list()
+    for i in data_df_dict.keys():
+        level_list = [m for m, n in data_df_dict[i][args.level].value_counts().items() if m != 'unknown']
+        count_list = [n for m, n in data_df_dict[i][args.level].value_counts().items() if m != 'unknown']
+        diff_set = all_level_set - set(level_list)
+        level_list.extend(list(diff_set))
+        count_list.extend([0] * len(diff_set))
+        all_otu_df_list.append(pd.DataFrame(count_list, index=level_list))
+    otu_level_df = pd.concat([i.T for i in all_otu_df_list], ignore_index=True)
+    otu_level_df.index = data_df_dict.keys()
+    del_columns_list = list()
+    for i in otu_level_df.columns:
+        if all([j < 5 for j in otu_level_df[i]]):
+            del_columns_list.append(i)
+    otu_level_df_filter = otu_level_df.drop(columns=del_columns_list)
+    if args.aquatic:
+        otu_level_df_filter = otu_level_df_filter.loc[:,
+                              otu_level_df_filter.columns.isin(args.aquatic)]
+    otu_level_df_filter_standardscale = otu_level_df_filter.apply(
+        lambda x: (x - np.min(x)) / (np.max(x) - np.min(x)))
+    plt.figure(figsize=otu_level_df_filter.shape, dpi=200)
+    cluster_map = sns.clustermap(otu_level_df_filter_standardscale.T, cmap='Blues', row_cluster=False,
+                                 method='average',
+                                 metric='braycurtis')
+    col_order = cluster_map.dendrogram_col.reordered_ind
+    x_axis_labels = cluster_map.ax_heatmap.get_xticklabels()
+    plt.clf()
     x_labels = [label.get_text() for label in x_axis_labels]
 
-    if args.geochem:
-        geochem = pd.read_excel(f'{args.geochem}', index_col=[0])
-        geochem.dropna(axis=1, how='all', inplace=True)
-        geochem.sort_index(axis=1, inplace=True)
-        geochem = geochem.reindex(labels=x_labels)
-        # geochem = geochem.reindex(labels=['Zhouyingzi3α', 'Zhouyingzi1α', 'Zhouyingzi2β', 'Zhouyingzi2α', 'Zhouyingzi3β', 'Zhouyingzi1β', 'Yujiagou north3β', 'Yujiagou north2β', 'Yujiagou north2α', 'Yujiagou north1γ', 'Yujiagou north1β', 'Yujiagou north1α', 'Yujiagou north3α', 'Yujiagou south1α', 'Donggou1', 'Donggou2', 'Donggou3', 'Donggouli2', 'Beigou1', 'Donggouli1', 'Beigou3', 'Beigou2', 'Donggouli3'])
-        geochem_standardscale = geochem.apply(lambda x: (x - np.min(x)) / (np.max(x) - np.min(x)))
-        plt.figure(figsize=geochem.shape, dpi=200)
-        ax = sns.heatmap(geochem_standardscale.T, cmap='Blues', annot=False, center=0, linewidths=.5, fmt='.2g')
-        # ax = sns.clustermap(geochem_standardscale.T, cmap='Blues', row_cluster=False, method='average', metric='braycurtis')
-        ax.set_xlabel('')
-        plt.savefig(fname=f'{args.output}_geochem.{args.format}', bbox_inches='tight')
-    print('Finished!')
-
+    geochem = pd.read_excel(f'{args.geochem}', index_col=[0])
+    geochem.dropna(axis=1, how='all', inplace=True)
+    geochem.sort_index(axis=1, inplace=True)
+    geochem = geochem.reindex(labels=x_labels)
+    # geochem = geochem.reindex(labels=['Zhouyingzi3α', 'Zhouyingzi1α', 'Zhouyingzi2β', 'Zhouyingzi2α', 'Zhouyingzi3β', 'Zhouyingzi1β', 'Yujiagou north3β', 'Yujiagou north2β', 'Yujiagou north2α', 'Yujiagou north1γ', 'Yujiagou north1β', 'Yujiagou north1α', 'Yujiagou north3α', 'Yujiagou south1α', 'Donggou1', 'Donggou2', 'Donggou3', 'Donggouli2', 'Beigou1', 'Donggouli1', 'Beigou3', 'Beigou2', 'Donggouli3'])
+    geochem_standardscale = geochem.apply(lambda x: (x - np.min(x)) / (np.max(x) - np.min(x)))
+    plt.figure(figsize=geochem.shape, dpi=200)
+    ax = sns.heatmap(geochem_standardscale.T, cmap='Blues', annot=False, center=0, linewidths=.5, fmt='.2g')
+    # ax = sns.clustermap(geochem_standardscale.T, cmap='Blues', row_cluster=False, method='average', metric='braycurtis')
+    ax.set_xlabel('')
+    plt.savefig(fname=f'{args.output}_geochem.{args.format}', bbox_inches='tight')
 
 def divvenn(args):
     groups_list = [i.split('/') for i in args.groups]
@@ -1463,21 +1494,33 @@ if __name__ == '__main__':
     parser.add_argument('-v', '--version', action='version', version='TaphonomeAnalyst 2.0')
     subparsers = parser.add_subparsers(help='commands')
 
-    clusterenv_parser = subparsers.add_parser(name='clusterenv',
+    m4clusterenv_parser = subparsers.add_parser(name='m4cluster',
                                               parents=[parent_parser],
-                                              help='Hierarchical clustering-sedimentary environment. (Module Ⅳ and Ⅴ)\t[clustermap]')
-    clusterenv_parser.add_argument('--level', type=str, required=True,
+                                              help='Hierarchical clustering-sedimentary environment. (Module Ⅳ)\t[clustermap]')
+    m4clusterenv_parser.add_argument('--level', type=str, required=True,
                                    choices=['order', 'family', 'genera', 'species'],
                                    help='Taxonomic level.(For both statistical and aquatic OTUs.)')
-    clusterenv_parser.add_argument('--aquatic', type=str2list, default=None,
+    m4clusterenv_parser.add_argument('--aquatic', type=str2list, default=None,
                                    help='Aquatic OTUs.(default: all OTUs)\t[e.g. "OTU1,OTU2,OTU3"]')
-    clusterenv_parser.add_argument('--geochem', type=str, required=False,
-                                   help='Absolute or relative path geochemical file.(e.g. "./geochem.xlsx")')
-    clusterenv_parser.add_argument('--output', type=str, default='./clusterenv',
+    m4clusterenv_parser.add_argument('--output', type=str, default='./clusterenv',
                                    help='Absolute path or relative path and filename.(default: %(default)s)')
-    clusterenv_parser.set_defaults(func=clusterenv)
+    m4clusterenv_parser.set_defaults(func=m4clusterenv)
+    
+    m5clusterenv_parser = subparsers.add_parser(name='m5cluster',
+                                              parents=[parent_parser],
+                                              help='Visualization of geochemical data. (Module Ⅴ)\t[clustermap]')
+    m5clusterenv_parser.add_argument('--level', type=str, required=True,
+                                   choices=['order', 'family', 'genera', 'species'],
+                                   help='Taxonomic level.(For both statistical and aquatic OTUs.)')
+    m5clusterenv_parser.add_argument('--aquatic', type=str2list, default=None,
+                                   help='Aquatic OTUs.(default: all OTUs)\t[e.g. "OTU1,OTU2,OTU3"]')
+    m5clusterenv_parser.add_argument('--geochem', type=str, required=False,
+                                   help='Absolute or relative path geochemical file.(e.g. "./geochem.xlsx")')
+    m5clusterenv_parser.add_argument('--output', type=str, default='./clusterenv',
+                                   help='Absolute path or relative path and filename.(default: %(default)s)')
+    m5clusterenv_parser.set_defaults(func=m5clusterenv)
 
-    divvenn_parser = subparsers.add_parser(name='divvenn', parents=[parent_parser],
+    divvenn_parser = subparsers.add_parser(name='m4venn', parents=[parent_parser],
                                            help='Venn diagram-sampling locations or environments. (Module Ⅳ)\t[venn]')
     divvenn_parser.add_argument('--level', type=str, default='family',
                                 choices=['order', 'family', 'genera', 'species'],
@@ -1488,7 +1531,7 @@ if __name__ == '__main__':
                                 help='Absolute path or relative path and filename.(default: %(default)s)')
     divvenn_parser.set_defaults(func=divvenn)
 
-    TGotus_parser = subparsers.add_parser(name='TGotus', parents=[parent_parser],
+    TGotus_parser = subparsers.add_parser(name='m3otus', parents=[parent_parser],
                                           help='Taphonomic grades-taxa. (Module Ⅲ)\t[barh]')
     TGotus_parser.add_argument('--level', type=str, default='order',
                                choices=['order', 'family', 'genera', 'species'],
@@ -1497,7 +1540,7 @@ if __name__ == '__main__':
                                help='Absolute path or relative path and filename.(default: %(default)s)')
     TGotus_parser.set_defaults(func=TGotus)
 
-    TGplots_parser = subparsers.add_parser(name='TGplots', parents=[parent_parser],
+    TGplots_parser = subparsers.add_parser(name='m3plots', parents=[parent_parser],
                                            help='Taphonomic grades-sampling plots (in customized order). (Module Ⅲ)\t[barh]')
     TGplots_parser.add_argument('--groups', type=str2list, default=None,
                                 help='Environment groups.(Recommend to group the plots by different aquatic and terrestrial environments)\t[e.g. "plotA1/plotB2,plotB1/plotA2,plotC1/plotC2"]')
@@ -1505,7 +1548,7 @@ if __name__ == '__main__':
                                 help='Absolute path or relative path and filename.(default: %(default)s)')
     TGplots_parser.set_defaults(func=TGplots)
 
-    abundplots_parser = subparsers.add_parser(name='abundplots', parents=[parent_parser],
+    abundplots_parser = subparsers.add_parser(name='m2abundplots', parents=[parent_parser],
                                               help='Abundance-sampling plots. (Module Ⅱ)\t[barh]')
     abundplots_parser.add_argument('--level', type=str, default='order',
                                    choices=['order', 'family', 'genera', 'species'],
@@ -1514,7 +1557,7 @@ if __name__ == '__main__':
                                    help='Absolute path or relative path and filename.(default: %(default)s)')
     abundplots_parser.set_defaults(func=abundplots)
 
-    cooccurnet_parser = subparsers.add_parser(name='cooccurnet', parents=[parent_parser],
+    cooccurnet_parser = subparsers.add_parser(name='m9cooccurnet', parents=[parent_parser],
                                               help='Co-occurrence networks. (Module Ⅸ)\t[network/venn]')
     cooccurnet_parser.add_argument('--level', type=str, default='family',
                                    choices=['order', 'family', 'genera', 'species'],
@@ -1530,7 +1573,7 @@ if __name__ == '__main__':
                                    help='Absolute path or relative path and filename.(default: %(default)s)')
     cooccurnet_parser.set_defaults(func=cooccurnet)
 
-    samplecurve_parser = subparsers.add_parser(name='samplecurve', parents=[parent_parser],
+    samplecurve_parser = subparsers.add_parser(name='m1sobs', parents=[parent_parser],
                                                help='Sampling coverage curve. (Module Ⅰ)\t[regplot]')
     samplecurve_parser.add_argument('--level', type=str, default='family',
                                     choices=['order', 'family', 'genera', 'species'],
@@ -1541,7 +1584,7 @@ if __name__ == '__main__':
                                     help='Absolute path or relative path and filename.(default: %(default)s)')
     samplecurve_parser.set_defaults(func=samplecurve)
 
-    chao_parser = subparsers.add_parser(name='chao', parents=[parent_parser],
+    chao_parser = subparsers.add_parser(name='m1chao', parents=[parent_parser],
                                         help='Chao1 potential diversity curve. (Module Ⅰ)\t[regplot]')
     chao_parser.add_argument('--level', type=str, default='family',
                              choices=['order', 'family', 'genera', 'species'],
@@ -1552,7 +1595,7 @@ if __name__ == '__main__':
                              help='Absolute path or relative path and filename.(default: %(default)s)')
     chao_parser.set_defaults(func=chao)
 
-    ace_parser = subparsers.add_parser(name='ace', parents=[parent_parser],
+    ace_parser = subparsers.add_parser(name='m1ace', parents=[parent_parser],
                                        help='ACE potential diversity curve. (Module Ⅰ)\t[regplot]')
     ace_parser.add_argument('--level', type=str, default='family', choices=['order', 'family', 'genera', 'species'],
                             help='Taxonomic level.(default: %(default)s)')
@@ -1563,7 +1606,7 @@ if __name__ == '__main__':
     ace_parser.add_argument('--rare', type=int, default=10, help='ACE rare threshold.(default: %(default)s)')
     ace_parser.set_defaults(func=ace)
 
-    corrotus_parser = subparsers.add_parser(name='corrotus', parents=[parent_parser],
+    corrotus_parser = subparsers.add_parser(name='m8corrotus', parents=[parent_parser],
                                             help='Heatmap-OTUs correlation analysis. (Module Ⅷ)\t[heatmap]')
     corrotus_parser.add_argument('--level', type=str, default='family',
                                  choices=['order', 'family', 'genera', 'species'],
@@ -1577,7 +1620,7 @@ if __name__ == '__main__':
                                  help='Absolute path or relative path and filename.(default: %(default)s)')
     corrotus_parser.set_defaults(func=corrotus)
 
-    mantel_parser = subparsers.add_parser(name='mantel', parents=[parent_parser],
+    mantel_parser = subparsers.add_parser(name='m7mantel', parents=[parent_parser],
                                           help='Mantel Test between species abundance and ecological environmental variables. (Module Ⅶ)\t[multiplot]')
     mantel_parser.add_argument('--rhome', type=str, required=True,
                                help='Absolute path of R_HOME.(e.g. "C:\Program Files\R\R-4.3.2")')
@@ -1598,7 +1641,7 @@ if __name__ == '__main__':
                                help='Absolute path or relative path and filename.(default: %(default)s)')
     mantel_parser.set_defaults(func=mantel)
 
-    dissenvtest_parser = subparsers.add_parser(name='dissenvtest', parents=[parent_parser],
+    dissenvtest_parser = subparsers.add_parser(name='m6dissenvtest', parents=[parent_parser],
                                                help='Assembling dissimilarity- environmental distance test. (Module Ⅵ)\t[regplot]')
     dissenvtest_parser.add_argument('--geochem', type=str, required=True,
                                     help='Absolute or relative path geochemical file.(e.g. "./geochem.xlsx")')
@@ -1614,7 +1657,7 @@ if __name__ == '__main__':
                                     help='Absolute path or relative path and filename.(default: %(default)s)')
     dissenvtest_parser.set_defaults(func=dissenvtest)
 
-    netVC_parser = subparsers.add_parser(name='netVC', parents=[parent_parser],
+    netVC_parser = subparsers.add_parser(name='m10netVC', parents=[parent_parser],
                                          help='Generate a unified layout network for comparison. (Module Ⅹ)\t[network/boxplot/barplot]')
     netVC_parser.add_argument('--aquatic', type=str2list, required=True,
                               help='Species-level aquatic OTUs.\t[e.g. "OTU1,OTU2,OTU3"]')
