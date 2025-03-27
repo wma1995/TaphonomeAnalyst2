@@ -118,11 +118,11 @@ Or check the detail in [User Guide](https://github.com/wma1995/TaphonomeAnalyst2
 
 ## Usage and Result
 
-### 1. Hierarchical clustering-sedimentary environment. **(Module Ⅳ and Ⅴ)** [clustermap]
+### 1. Hierarchical clustering-sedimentary environment. **(Module Ⅳ)** [clustermap]
 
 Command:
         
-    python ./TaphonomeAnalyst2.py clusterenv --input "./Supplementary material2.xlsx" --aquatic "Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)" --geochem "./Supplementary material3.xlsx" --level species
+    python ./TaphonomeAnalyst2.py clusterenv --input "./Supplementary material2.xlsx" --aquatic "Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)" --level species
 
 Result:
 
@@ -130,9 +130,17 @@ Result:
 
 ![clusterenv_tree.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/clusterenv_tree.png)
 
+### 2. Visualization of geochemical data. **(Module Ⅴ)** [clustermap]
+
+Command:
+        
+    python ./TaphonomeAnalyst2.py clusterenv --input "./Supplementary material2.xlsx" --aquatic "Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)" --geochem "./Supplementary material3.xlsx" --level species
+
+Result:
+
 ![clusterenv_geochem.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/clusterenv_geochem.png)
 
-### 2. Venn diagram-sampling locations or environments. **(Module Ⅳ)** [venn]
+### 3. Venn diagram-sampling locations or environments. **(Module Ⅳ)** [venn]
 
 Command:
         
@@ -142,7 +150,7 @@ Result:
 
 ![divvenn.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/divvenn.png)
 
-### 3. Taphonomic grades-taxa. **(Module Ⅲ)** [barh]
+### 4. Taphonomic grades-taxa. **(Module Ⅲ)** [barh]
 
 Command:
 
@@ -152,7 +160,7 @@ Result:
 
 ![TGotus.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/TGotus.png)
 
-### 4. Taphonomic grades-sampling plots (in customized order). **(Module Ⅲ)** [barh]
+### 5. Taphonomic grades-sampling plots (in customized order). **(Module Ⅲ)** [barh]
 
 Command:
 
@@ -166,7 +174,7 @@ Result:
 
 ![TGplots_groups.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/TGplots_groups.png)
 
-### 5. Abundance-sampling plots. **(Module Ⅱ)** [barh]
+### 6. Abundance-sampling plots. **(Module Ⅱ)** [barh]
 
 Command:
 
@@ -176,7 +184,7 @@ Result:
 
 ![abundplots.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/abundplots.png)
 
-### 6. Co-occurrence networks. **(Module Ⅸ)** [network/venn]
+### 7. Co-occurrence networks. **(Module Ⅸ)** [network/venn]
 
 Command:
 
@@ -188,7 +196,7 @@ Result:
 
 ![cooccurnet_venn.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/cooccurnet_venn.png)
 
-### 7. Sampling coverage curve. **(Module Ⅰ)** [regplot]
+### 8. Sampling coverage curve. **(Module Ⅰ)** [regplot]
 
 Command:
 
@@ -198,7 +206,7 @@ Result:
 
 ![samplecurve.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/samplecurve.png)
 
-### 8. Chao1 potential diversity curve. **(Module Ⅰ)** [regplot]
+### 9. Chao1 potential diversity curve. **(Module Ⅰ)** [regplot]
 
 Command:
 
@@ -208,7 +216,7 @@ Result:
 
 ![chao.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/chao.png)
 
-### 9. ACE potential diversity curve. **(Module Ⅰ)** [regplot]
+### 10. ACE potential diversity curve. **(Module Ⅰ)** [regplot]
 
 Command:
 
@@ -218,7 +226,7 @@ Result:
 
 ![ace.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/ace.png)
 
-### 10. Heatmap-OTUs correlation analysis. **(Module Ⅷ)** [heatmap]
+### 11. Heatmap-OTUs correlation analysis. **(Module Ⅷ)** [heatmap]
 
 Command:
 
@@ -228,7 +236,7 @@ Result:
 
 ![corrotus.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/corrotus.png)
 
-### 11. Mantel Test between species abundance and ecological environmental variables. **(Module Ⅶ)** [multiplot]
+### 12. Mantel Test between species abundance and ecological environmental variables. **(Module Ⅶ)** [multiplot]
 
 Command:
 
@@ -238,7 +246,7 @@ Result:
 
 ![mantel.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/mantel.png)
 
-### 12. Assembling dissimilarity- environmental distance test. **(Module Ⅵ)** [regplot]
+### 13. Assembling dissimilarity- environmental distance test. **(Module Ⅵ)** [regplot]
 
 Command:
 
@@ -248,7 +256,7 @@ Result:
 
 ![dissenvtest.png](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Result/dissenvtest.png)
 
-### 13. Generate a unified layout network for comparison. (Module Ⅹ)\t[network/boxplot/barplot]
+### 14. Generate a unified layout network for comparison. (Module Ⅹ)\t[network/boxplot/barplot]
 
 Command:
 
