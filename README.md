@@ -134,7 +134,7 @@ Result:
 
 Command:
         
-    python ./TaphonomeAnalyst2.py m4cluster --input "./Supplementary material2.xlsx" --aquatic "Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)" --geochem "./Supplementary material3.xlsx" --level species
+    python ./TaphonomeAnalyst2.py m5cluster --input "./Supplementary material2.xlsx" --aquatic "Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)" --geochem "./Supplementary material3.xlsx" --level species
 
 Result:
 
