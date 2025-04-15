@@ -240,7 +240,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py m7mantel --input "./Supplementary material2.xlsx" --rhome "C:\Program Files\R\R-4.3.3" --geochem "./Supplementary material3.xlsx" --aquatic Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l) --level_aquatic species --level_terrestrial family --corr pearson
+    python ./TaphonomeAnalyst2.py m7mantel --input "./Supplementary material2.xlsx" --rhome "C:\Program Files\R\R-4.3.3" --geochem "./Supplementary material3.xlsx" --aquatic "Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)" --level_aquatic species --level_terrestrial family --corr pearson
 
 Result:
 
@@ -250,7 +250,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py m6dissenvtest --input "./Supplementary material2.xlsx" --aquatic Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l) --level_aquatic species --level_terrestrial family --geochem "./Supplementary material3.xlsx"
+    python ./TaphonomeAnalyst2.py m6dissenvtest --input "./Supplementary material2.xlsx" --aquatic "Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)" --level_aquatic species --level_terrestrial family --geochem "./Supplementary material3.xlsx"
 
 Result:
 
@@ -260,7 +260,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py m10netVC --input "./Supplementary material2.xlsx" --aquatic Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l) --level_aquatic species --level_terrestrial family --groups plot3-3/plot3-1/plot3-2,plot1-1/plot2-2/plot2-1/plot2-3/plot1-2/plot1-3 --corr spearman --corr_coef 0.7 --p_value 0.01
+    python ./TaphonomeAnalyst2.py m10netVC --input "./Supplementary material2.xlsx" --aquatic "Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)" --level_aquatic species --level_terrestrial family --groups plot3-3/plot3-1/plot3-2,plot1-1/plot2-2/plot2-1/plot2-3/plot1-2/plot1-3 --corr spearman --corr_coef 0.7 --p_value 0.01
 
 Result:
 
