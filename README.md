@@ -144,7 +144,7 @@ Result:
 
 Command:
         
-    python ./TaphonomeAnalyst2.py m4venn --input "./Supplementary material2.xlsx" --groups plot3-3/plot3-1/plot3-2,plot1-1/plot2-2/plot2-1/plot2-3/plot1-2/plot1-3 --level family
+    python ./TaphonomeAnalyst2.py m4venn --input "./Supplementary material2.xlsx" --groups Donggou1/Donggou2/Donggou3,Donggouli1/Donggouli2/Donggouli3/Beigou1/Beigou2/Beigou3 --level family
 
 Result:
 
@@ -166,7 +166,7 @@ Command:
 
     python ./TaphonomeAnalyst2.py m3plots --input "./Supplementary material2.xlsx"
 
-    python ./TaphonomeAnalyst2.py m3plots --input "./Supplementary material2.xlsx" --groups plot3-3/plot3-1/plot3-2,plot1-1/plot2-2/plot2-1/plot2-3/plot1-2/plot1-3
+    python ./TaphonomeAnalyst2.py m3plots --input "./Supplementary material2.xlsx" --groups Donggou1/Donggou2/Donggou3,Donggouli1/Donggouli2/Donggouli3/Beigou1/Beigou2/Beigou3
 
 Result:
 
@@ -200,7 +200,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py m1sobs --input "./Supplementary material2.xlsx" --level family --groups plot1:plot1-1/plot1-2/plot1-3,plot2:plot2-1/plot2-2/plot2-3,plot3:plot3-1/plot3-2/plot3-3
+    python ./TaphonomeAnalyst2.py m1sobs --input "./Supplementary material2.xlsx" --level family --groups Donggou:Donggou1/Donggou2/Donggou3,Donggouli:Donggouli1/Donggouli2/Donggouli3,Beigou:Beigou1/Beigou2/Beigou3
 
 Result:
 
@@ -210,7 +210,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py m1chao --input "./Supplementary material2.xlsx" --level family --groups plot1:plot1-1/plot1-2/plot1-3,plot2:plot2-1/plot2-2/plot2-3,plot3:plot3-1/plot3-2/plot3-3
+    python ./TaphonomeAnalyst2.py m1chao --input "./Supplementary material2.xlsx" --level family --groups Donggou:Donggou1/Donggou2/Donggou3,Donggouli:Donggouli1/Donggouli2/Donggouli3,Beigou:Beigou1/Beigou2/Beigou3
 
 Result:
 
@@ -220,7 +220,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py m1ace --input "./Supplementary material2.xlsx" --level family --groups plot1:plot1-1/plot1-2/plot1-3,plot2:plot2-1/plot2-2/plot2-3,plot3:plot3-1/plot3-2/plot3-3 --rare 10
+    python ./TaphonomeAnalyst2.py m1ace --input "./Supplementary material2.xlsx" --level family --groups Donggou:Donggou1/Donggou2/Donggou3,Donggouli:Donggouli1/Donggouli2/Donggouli3,Beigou:Beigou1/Beigou2/Beigou3 --rare 10
 
 Result:
 
@@ -260,7 +260,7 @@ Result:
 
 Command:
 
-    python ./TaphonomeAnalyst2.py m10netVC --input "./Supplementary material2.xlsx" --aquatic "Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)" --level_aquatic species --level_terrestrial family --groups plot3-3/plot3-1/plot3-2,plot1-1/plot2-2/plot2-1/plot2-3/plot1-2/plot1-3 --corr spearman --corr_coef 0.7 --p_value 0.01
+    python ./TaphonomeAnalyst2.py m10netVC --input "./Supplementary material2.xlsx" --aquatic "Daohugounectes primitinus(l),Triglypta haifanggouensis,Triglypta haifanggouensis,Yanliaocorixa chinensis,Karataviella popovi,Samarura gigantea(l),Anisoptera fam. gen. sp1.(l),Platyperla platypoda(l),Ferganoconcha sibirica,Qiyia jurassica(l),Mesomyzon sp1.,Triops sp1.,Chirocephalidae gen. sp1.,Eurythoracalis mirabilis(l),Shantous lacustris(l),Foliomimus latus(l),Furvoneta viriosus(l),Furvoneta raucus(l),Mesobaetis sibirica(l),Clavineta eximia(l)" --level_aquatic species --level_terrestrial family --groups Donggou1/Donggou2/Donggou3,Donggouli1/Donggouli2/Donggouli3/Beigou1/Beigou2/Beigou3 --corr spearman --corr_coef 0.7 --p_value 0.01
 
 Result:
 
