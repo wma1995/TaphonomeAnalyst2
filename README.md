@@ -77,12 +77,15 @@ There are two ways to install TaphonomeAnalyst 2.0.
 ### 1. Use Conda (Recommend)
 
 #### * Note : How to download and install conda? [Documentation](https://docs.conda.io/projects/conda/en/stable/).
+#### * Note : How to download and install git? [Documentation](https://git-scm.com/downloads).
 
 Command:
 
     conda create -n taphonomeAnalyst2 python=3.9 r-base=4.3.3
     conda activate taphonomeAnalyst2
     conda install r-dplyr r-ggplot2 r-devtools r-vegan openpyxl
+    git clone https://github.com/wma1995/TaphonomeAnalyst2.git
+    cd TaphonomeAnalyst2
     pip install -r ./requirements.txt
     Rscript ./install_packages.R
 
@@ -91,10 +94,12 @@ Command:
 
 Command:
 
+    git clone https://github.com/wma1995/TaphonomeAnalyst2.git
+    cd TaphonomeAnalyst2
     pip install -r ./requirements.txt
     Rscript ./install_packages.R
 
-#### * Note : In this way, you need to install Python 3.8.8 and R 4.3.2 in advance and add them to the environment variables.
+#### * Note : In this way, you need to install Python 3.9.21 and R 4.3.3 in advance and add them to the environment variables.
 
 ## Documentation
 
