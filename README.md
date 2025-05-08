@@ -74,10 +74,11 @@ This project uses the following R packages:
 
 There are two ways to install TaphonomeAnalyst 2.0.
 
+#### * Note : How to download and install git? [Documentation](https://git-scm.com/downloads).
+
 ### 1. Use Conda (Recommend)
 
 #### * Note : How to download and install conda? [Documentation](https://docs.conda.io/projects/conda/en/stable/).
-#### * Note : How to download and install git? [Documentation](https://git-scm.com/downloads).
 
 Command:
 
