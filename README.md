@@ -38,7 +38,7 @@ Contract: 13820113071@163.com (Shilong Guo) / wma19952022@163.com (Wang Ma)
 This project requires the following software versions:
 
 - **Python**: 3.9.21
-- **R**: 4.3.3
+- **R**: 4.1.3
 
 ### Dependencies
 
@@ -46,7 +46,7 @@ This project requires the following software versions:
 
 This project uses the following Python packages:
 
-- `rpy2`: 3.5.16
+- `rpy2`: 3.5.11
 - `community`: 1.0.0b1
 - `dask`: 2023.5.0
 - `h5py`: 3.6.0
@@ -61,6 +61,7 @@ This project uses the following Python packages:
 - `scipy`: 1.9.0
 - `seaborn`: 0.11.1
 - `venn`: 0.1.3
+- `pycairo`: 1.28.0
 
 #### 2. R Packages
 
@@ -82,9 +83,9 @@ There are two ways to install TaphonomeAnalyst 2.0.
 
 Command:
 
-    conda create -n taphonomeAnalyst2 python=3.9 r-base=4.3.3
+    conda create -n taphonomeAnalyst2 python=3.9 r-base=4.1.3
     conda activate taphonomeAnalyst2
-    conda install r-dplyr r-ggplot2 r-devtools r-vegan openpyxl
+    conda install r-dplyr r-ggplot2 r-devtools r-vegan openpyxl rpy2=3.5.11 scikit-bio=0.6.2
     git clone https://github.com/wma1995/TaphonomeAnalyst2.git
     cd TaphonomeAnalyst2
     pip install -r ./requirements.txt
@@ -100,7 +101,7 @@ Command:
     pip install -r ./requirements.txt
     Rscript ./install_packages.R
 
-#### * Note : In this way, you need to install Python 3.9.21 and R 4.3.3 in advance and add them to the environment variables.
+#### * Note : In this way, you need to install Python 3.9.21 and R 4.1.3 in advance and add them to the environment variables.
 
 ## Documentation
 
