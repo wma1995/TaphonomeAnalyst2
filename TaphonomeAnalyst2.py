@@ -17,7 +17,7 @@ from functools import reduce
 from operator import itemgetter
 import matplotlib.pyplot as plt
 import matplotlib.colors as mcolors
-import community as community_louvain
+from community import community_louvain
 from itertools import combinations, permutations
 from skbio.diversity.alpha import chao1, chao1_ci
 from scipy.cluster.hierarchy import linkage, dendrogram
@@ -26,6 +26,7 @@ from sparcc import SparCC_MicNet
 
 warnings.filterwarnings("ignore")
 
+os.environ["LANGUAGE"] = "en_US.UTF-8"
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 sns.reset_orig()
@@ -797,6 +798,8 @@ def corrotus(args):
 def mantel(args):
     os.environ['R_HOME'] = args.rhome
     from rpy2 import robjects
+    robjects.r('Sys.setlocale("LC_ALL", "English_United States.1252")')  # Windows 兼容编码
+    robjects.r('options(encoding = "UTF-8")') 
     from rpy2.robjects.vectors import IntVector, StrVector
     pd.read_excel(args.geochem, header=0, index_col=[0]).sort_index().to_csv('./geochem.csv')
     aquatic_level_list = args.aquatic
@@ -876,7 +879,7 @@ def mantel(args):
     robjects.globalenv['r_title'] = r_title
     robjects.globalenv['r_output'] = r_output
     robjects.globalenv['r_format'] = r_format
-    robjects.r('Sys.setlocale("LC_CTYPE", "en_US.UTF-8")')
+    # robjects.r('Sys.setlocale("LC_CTYPE", "en_US.UTF-8")')
     robjects.r(f'''
         library(dplyr)
         library(linkET)  
