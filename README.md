@@ -86,6 +86,7 @@ Command:
     conda create -n taphonomeAnalyst2 python=3.9 r-base=4.1.3
     conda activate taphonomeAnalyst2
     conda install r-dplyr r-ggplot2 r-devtools r-vegan openpyxl rpy2=3.5.11 scikit-bio=0.6.2
+    # conda install git
     git clone https://github.com/wma1995/TaphonomeAnalyst2.git
     cd TaphonomeAnalyst2
     pip install -r ./requirements.txt
@@ -98,6 +99,7 @@ Command:
 
     git clone https://github.com/wma1995/TaphonomeAnalyst2.git
     cd TaphonomeAnalyst2
+    pip install rpy2==3.5.11 scikit_bio==0.6.2
     pip install -r ./requirements.txt
     Rscript ./install_packages.R
 
