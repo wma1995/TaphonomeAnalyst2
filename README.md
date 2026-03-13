@@ -115,7 +115,7 @@ Or check the detail in [User Guide](https://github.com/wma1995/TaphonomeAnalyst2
 
 ### 1. User Guide
 
-[Supplementary material1 The User Guide of TaphonomeAnalyst 2.0.pdf](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Supplementary%20material1%20The%20User%20Guide%20of%20TaphonomeAnalyst%202.0.docx) 
+[Supplementary material1 The User Guide of TaphonomeAnalyst 2.0.docx](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Supplementary%20material1%20The%20User%20Guide%20of%20TaphonomeAnalyst%202.0.docx) 
 
 ### 2. OTUs Data
 
