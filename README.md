@@ -109,13 +109,13 @@ Command:
 
 Using `python ./TaphonomeAnalyst2.py -h` and `python ./TaphonomeAnalyst2.py [command] -h` to read the brief.  
 
-Or check the detail in [User Guide](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Supplementary%20material1%20The%20User%20Guide%20of%20TaphonomeAnalyst%202.0.pdf)
+Or check the detail in [User Guide](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Supplementary%20material1%20The%20User%20Guide%20of%20TaphonomeAnalyst%202.0.docx)
 
 ## Information and Data
 
 ### 1. User Guide
 
-[Supplementary material1 The User Guide of TaphonomeAnalyst 2.0.pdf](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Supplementary%20material1%20The%20User%20Guide%20of%20TaphonomeAnalyst%202.0.pdf) 
+[Supplementary material1 The User Guide of TaphonomeAnalyst 2.0.pdf](https://github.com/wma1995/TaphonomeAnalyst2/blob/main/Supplementary%20material1%20The%20User%20Guide%20of%20TaphonomeAnalyst%202.0.docx) 
 
 ### 2. OTUs Data
 
